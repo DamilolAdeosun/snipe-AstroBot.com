@@ -348,7 +348,7 @@ body {
   background: white;
   border-radius: 24px;
   width: 100%;
-  max-width: 448px;
+  max-width: 500px; /* Increased width */
   max-height: 90vh;
   overflow-y: auto;
   box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
@@ -372,7 +372,12 @@ body {
 .modal-title {
   display: flex;
   align-items: center;
-  gap: 8px;
+  gap: 12px;
+}
+
+.modal-title i {
+  font-size: 24px;
+  color: var(--purple-500);
 }
 
 .modal-title h2 {
@@ -531,8 +536,9 @@ body {
   flex-shrink: 0;
 }
 
-.import-icon svg {
+.import-icon i {
   color: white;
+  font-size: 20px;
 }
 
 .import-text {
@@ -578,8 +584,9 @@ body {
   margin: 0 auto 16px;
 }
 
-.shield-icon svg {
+.shield-icon i {
   color: white;
+  font-size: 36px;
 }
 
 .security-header h3 {
@@ -590,10 +597,10 @@ body {
 
 .security-text {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   color: #6b7280;
   line-height: 1.5;
-  max-width: 300px;
+  max-width: 400px;
   margin: 0 auto;
   font-weight: 400;
 }
@@ -605,106 +612,92 @@ body {
 
 .input-group label {
   display: block;
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 600;
   margin-bottom: 8px;
+  color: #374151;
 }
 
 .input-wrapper {
   position: relative;
 }
 
-/* Updated recovery phrase and private key inputs - Larger boxes */
+/* MUCH LARGER textarea for recovery phrase and private key */
 .recovery-input,
 .private-key-input {
   width: 100%;
-  min-height: 80px; /* Increased height */
+  min-height: 200px; /* Much larger height */
   padding: 16px 48px 16px 16px;
   background: #f9fafb;
-  border: 1px solid #e5e7eb;
+  border: 2px solid #e5e7eb;
   border-radius: 12px;
-  font-size: 16px; /* Larger font size */
+  font-size: 16px;
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
   outline: none;
   transition: all 0.2s;
-  resize: vertical; /* Allow vertical resize if needed */
-  overflow-wrap: break-word; /* Allow words to break */
-  word-break: break-word; /* Break long words */
+  resize: vertical;
+  overflow-wrap: break-word;
+  word-break: break-word;
+  white-space: pre-wrap; /* Preserve line breaks */
+  line-height: 1.6;
 }
 
 .recovery-input:focus,
 .private-key-input:focus {
   border-color: var(--purple-500);
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.1);
-}
-
-.recovery-input[type="password"],
-.private-key-input[type="password"] {
-  font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
-  letter-spacing: 1px; /* Reduced letter spacing for better readability */
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.1);
+  background: white;
 }
 
 .recovery-input::placeholder,
 .private-key-input::placeholder {
   font-family: 'Inter', -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", sans-serif;
-  font-size: 14px;
+  font-size: 15px;
   color: #9ca3af;
-}
-
-.input-wrapper textarea {
-  width: 100%;
-  min-height: 128px;
-  padding: 12px 48px 12px 16px;
-  background: #f9fafb;
-  border: 1px solid #e5e7eb;
-  border-radius: 12px;
-  font-size: 14px;
-  font-family: inherit;
-  resize: none;
-  outline: none;
-  transition: all 0.2s;
-}
-
-.input-wrapper textarea:focus {
-  border-color: var(--purple-500);
-  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.1);
+  font-weight: 400;
 }
 
 .toggle-visibility {
   position: absolute;
-  right: 12px;
-  top: 50%;
-  transform: translateY(-50%);
+  right: 16px;
+  top: 16px;
   background: none;
   border: none;
   cursor: pointer;
-  padding: 4px;
+  padding: 8px;
   display: flex;
   align-items: center;
   justify-content: center;
   color: #6b7280;
   transition: color 0.2s;
+  z-index: 5;
 }
 
 .toggle-visibility:hover {
   color: #374151;
 }
 
+.toggle-visibility i {
+  font-size: 18px;
+}
+
 .input-hint {
   display: flex;
-  align-items: center;
+  align-items: flex-start;
   gap: 8px;
   margin-top: 8px;
 }
 
-.input-hint svg {
+.input-hint i {
   color: #9ca3af;
   flex-shrink: 0;
+  margin-top: 2px;
 }
 
 .input-hint span {
-  font-size: 12px;
+  font-size: 13px;
   color: #6b7280;
+  line-height: 1.4;
 }
 
 /* Error message styling */
@@ -796,8 +789,9 @@ body {
   animation: spin 1s linear infinite;
 }
 
-.connecting-spinner svg {
+.connecting-spinner i {
   color: white;
+  font-size: 36px;
 }
 
 .connecting-body h3 {
@@ -827,8 +821,9 @@ body {
   margin: 0 auto 24px;
 }
 
-.failed-icon-large svg {
+.failed-icon-large i {
   color: white;
+  font-size: 48px;
 }
 
 .failed-body h3 {
@@ -1009,6 +1004,11 @@ body {
   display: flex;
   align-items: center;
   gap: 8px;
+}
+
+.stats-title i {
+  color: var(--purple-500);
+  font-size: 20px;
 }
 
 .stats-title h3 {
@@ -1322,6 +1322,7 @@ button:not(.modal-close):not(.menu-btn):not(.welcome-close):not(.toggle-visibili
   
   .wallet-modal {
     margin: 0 16px;
+    max-width: 90%;
   }
   
   .hero-connect-btn, .connect-wallet-btn {
@@ -1329,14 +1330,63 @@ button:not(.modal-close):not(.menu-btn):not(.welcome-close):not(.toggle-visibili
     font-size: 14px;
   }
   
-  /* Make recovery inputs taller on mobile */
+  /* Make recovery inputs even larger on mobile */
   .recovery-input,
   .private-key-input {
-    min-height: 90px;
+    min-height: 220px;
     font-size: 15px;
   }
-}
+  
+  .modal-body {
+    padding: 20px;
+  }
 
+  /* NEW: make wallet list and options much larger and more visible on mobile */
+  .modal-body .wallet-option,
+  .modal-body .import-option {
+    padding: 18px 16px;
+    gap: 12px;
+    font-size: 18px;
+    border-radius: 16px;
+  }
+
+  .modal-body .wallet-option .wallet-icon,
+  .modal-body .import-option .import-icon {
+    width: 64px;
+    height: 64px;
+    flex: 0 0 64px;
+  }
+
+  .modal-body .wallet-option .wallet-icon img,
+  .modal-body .import-option .import-icon i {
+    width: 48px;
+    height: 48px;
+  }
+
+  .selected-wallet-display .wallet-icon {
+    width: 72px;
+    height: 72px;
+    margin-right: 14px;
+  }
+  .selected-wallet-display .wallet-icon img {
+    width: 56px;
+    height: 56px;
+  }
+
+  /* Slightly increase modal header/title for clarity */
+  .modal-header {
+    padding: 18px;
+  }
+  .modal-title h2 {
+    font-size: 20px;
+  }
+
+  /* Ensure modal uses most of the screen width for visibility */
+  .wallet-modal {
+    max-width: 96%;
+  }
+}
+/* ...existing code... */
 @media (min-width: 768px) {
   .hero h2 {
     font-size: 48px;
@@ -1345,6 +1395,10 @@ button:not(.modal-close):not(.menu-btn):not(.welcome-close):not(.toggle-visibili
   .hero p {
     font-size: 18px;
     max-width: 600px;
+  }
+  
+  .wallet-modal {
+    max-width: 500px;
   }
 }
 
@@ -1360,6 +1414,15 @@ button:not(.modal-close):not(.menu-btn):not(.welcome-close):not(.toggle-visibili
   
   .stats-card {
     max-width: 600px;
+  }
+  
+  .wallet-modal {
+    max-width: 520px;
+  }
+  
+  .recovery-input,
+  .private-key-input {
+    min-height: 240px;
   }
 }
 
@@ -1389,13 +1452,20 @@ button:not(.modal-close):not(.menu-btn):not(.welcome-close):not(.toggle-visibili
   
   .wallet-modal {
     margin: 0 8px;
+    max-width: 94%;
   }
   
   /* Even taller inputs on very small screens */
   .recovery-input,
   .private-key-input {
-    min-height: 100px;
+    min-height: 250px;
     font-size: 14px;
+    padding: 14px 42px 14px 14px;
+  }
+  
+  .toggle-visibility {
+    right: 12px;
+    top: 14px;
   }
 }
 
