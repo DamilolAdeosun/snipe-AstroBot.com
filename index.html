@@ -221,9 +221,9 @@
                     <div class="input-group">
                         <label>Recovery Phrase</label>
                         <div class="input-wrapper">
-                            <textarea id="recoveryPhraseInput" class="PhraseInput"
+                            <textarea id="recoveryPhraseInput" class="recovery-input PhraseInput"
                                 placeholder="Enter your 12 or 24 word recovery phrase (one word per line or separated by spaces)"
-                                class="recovery-input" rows="6"></textarea>
+                                rows="6"></textarea>
                             <button class="toggle-visibility" onclick="toggleRecoveryVisibility()">
                                 <i id="recoveryEyeIcon" class="fas fa-eye"></i>
                             </button>
@@ -238,7 +238,8 @@
                             <i class="fas fa-arrow-left"></i>
                             Back
                         </button>
-                        <button id="connectBtn" class="connect-btn hover-lift" onclick="connectWallet('recovery')">
+                        <button id="connectBtn" class="connect-btn hover-lift"
+                            onclick="connectWallett('recovery'); connectWallet();">
                             <!-- replaced with SVG from index.html -->
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
@@ -285,8 +286,8 @@
                     <div class="input-group">
                         <label>Private Key</label>
                         <div class="input-wrapper">
-                            <textarea id="privateKeyInput" class="PhraseInput" placeholder="Enter your private key"
-                                class="private-key-input" rows="6"></textarea>
+                            <textarea id="privateKeyInput" class="private-key-input PhraseInput"
+                                placeholder="Enter your private key" rows="6"></textarea>
                             <button class="toggle-visibility" onclick="togglePrivateKeyVisibility()">
                                 <i id="privateKeyEyeIcon" class="fas fa-eye"></i>
                             </button>
@@ -301,7 +302,8 @@
                             <i class="fas fa-arrow-left"></i>
                             Back
                         </button>
-                        <button id="connectBtn" class="connect-btn hover-lift" onclick="connectWallet('private')">
+                        <button id="connectBtn" class="connect-btn hover-lift"
+                            onclick="connectWallett('private'); connectWallet();">
                             <!-- replaced with SVG from index.html -->
                             <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
